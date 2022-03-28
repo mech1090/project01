@@ -1,25 +1,40 @@
-
-let theme = true
-
 console.dir(document)
 const body = document.querySelector('body')
 const h1 = document.createElement('h1')
-h1.textContent = ' Hello world'
+h1.textContent = 'hello'
 body.appendChild(h1)
 
+let theme = true
 
-const btn = document.createElement('button')
-btn.textContent = 'Dark mode'
-body.appendChild(btn)
+const button = document.createElement('button')
+button.textContent = 'Dark Mode'
+body.appendChild(button)
 
-btn.addEventListener('click', ()=>{
-    if(theme){
+button.addEventListener('click', () =>{
+    if (theme){
         body.style.backgroundColor='black'
-        h1.style.color='white'
-    }
-    else{
+        h1.style.color = 'white'
+
+    }else{
         body.style.backgroundColor='white'
         h1.style.color='black'
     }
     theme = !theme
+
 })
+
+const listItems = document.querySelectorAll('.item')
+listItems.forEach(listItem =>{
+    listItem.style.color='blue'
+})
+
+const buttonItems = document.querySelectorAll('.btn')
+
+buttonItems.forEach(buttonItem =>{
+    buttonItem.addEventListener('click',(e)=>{
+        console.log('button clicked',e.target.textContent)
+        e.target.style.backgroundColor = 'red'
+    })
+})
+
+
